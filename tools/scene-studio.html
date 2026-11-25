@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Companion Studio</title>
+<link rel="stylesheet" href="../src/station.css">
+<style>body{margin:32px auto;max-width:760px;padding:0 20px;font:16px system-ui;color:#284f70;background:#fdfcf9}.home-station{width:680px;max-width:100%;margin:24px auto}.home-station::before{display:none}.stage{aspect-ratio:1.2}button,a{font:inherit}#poster-download{display:block;margin:16px 0} [hidden]{display:none!important}</style>
+<h1>Companion Studio</h1><p>Choose a companion, then export a transparent poster. Keep the default angle for homepage fallbacks.</p>
+<figure id="companion-station" class="home-station" data-companion="bear" data-export>
+<div class="stage" data-mode="static"><img class="poster" alt="Companion poster"><canvas hidden tabindex="0" role="img"></canvas></div>
+<div class="companion-picker" role="group" aria-label="Choose a companion"></div></figure>
+<button id="export" disabled>Export transparent PNG</button><a id="poster-download" hidden>Download PNG</a>
+<script type="module" src="../src/station.js"></script>
+<script>const station=document.getElementById('companion-station');const button=document.getElementById('export');station.addEventListener('companionready',()=>{button.disabled=false;document.getElementById('poster-download').hidden=true});button.onclick=()=>station.dispatchEvent(new Event('export-poster'));</script>
+</html>
